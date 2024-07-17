@@ -1,0 +1,91 @@
+:root {
+    --mdc-theme-primary: #fcb8ab;
+    --mdc-theme-secondary: #feeae6;
+}
+body {
+    background: #ededf5 0% 0% no-repeat padding-box;
+}
+
+/* sticky bar */
+.stickybar-project {
+    margin-bottom: 0;
+    top: 0px;
+    left: 0px;
+    height: 64px;
+    padding: 0 1rem;
+    /* UI Properties */
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 1px 20px #0000000b;
+    z-index: 5;
+}
+
+.rotate90 {
+    display: inline-block;
+    transform: rotate(90deg);
+}
+
+/* navbar */
+
+.navbar-project {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: #fafafa;
+    box-shadow: 0px 1px 20px #0000000a;
+    padding: 0 1rem;
+    z-index: 4;
+}
+
+/* hover */
+
+.img-hover img {
+    transition: all 0.3s ease;
+    position: relative;
+}
+.img-hover img:hover {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.2); /* Safari and Chrome */
+    -moz-transform: scale(1.2); /* Firefox */
+    -ms-transform: scale(1.2); /* IE 9 */
+    -o-transform: translatZ(0) scale(1.2); /* Opera */
+    transform: translatZ(0) scale(1.2);
+}
+
+/* new product */
+
+@media screen and (max-width: 1248px) {
+    .responsive {
+        width: 90%;
+        justify-content: center;
+    }
+}
+
+.new-image {
+    width: 12rem;
+    height: 15rem;
+    align-content: center;
+    border: 2px dashed #4a4a4a;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 825px) {
+    .new-image {
+        width: 8rem;
+        height: 12rem;
+    }
+}
+
+.upload-image {
+    max-width: 12rem;
+    max-height: 200px;
+}
+
+@media screen and (max-width: 825px) {
+    .upload-image {
+        max-width: 8rem;
+        max-height: 12rem;
+    }
+}
