@@ -9,7 +9,12 @@ const Input = ({ name, label, error, ...rest }) => {
                     {label}
                 </label>
                 <input id={name} className="form-control" {...rest} />
-                {error && <div className="alert alert-danger  ">{error}</div>}
+                {error && (
+                    <small className="font-size-small font-weight-light text-danger">
+                        {"- "}
+                        {error}
+                    </small>
+                )}
             </div>
         </React.Fragment>
     );

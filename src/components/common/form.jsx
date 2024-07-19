@@ -32,7 +32,7 @@ class Form extends Component {
 
     // validate on change
     validateProperty = ({ id, value }) => {
-        const obj = { [id]: value };
+        const obj = { [id]: value.trim() };
 
         const schema = { [id]: this.schema[id] };
 

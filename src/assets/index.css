@@ -1,9 +1,14 @@
-:root {
-    --mdc-theme-primary: #fcb8ab;
-    --mdc-theme-secondary: #feeae6;
-}
 body {
     background: #ededf5 0% 0% no-repeat padding-box;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
 }
 
 /* sticky bar */

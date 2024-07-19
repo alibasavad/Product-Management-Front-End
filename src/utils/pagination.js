@@ -1,8 +1,4 @@
-export const pagination = <T>(
-    arr: T[],
-    currentPage: number,
-    rowPerPage: number
-): T[] => {
+export const pagination = (arr, currentPage, rowPerPage) => {
     const firstIndex = (currentPage - 1) * rowPerPage;
     const lastIndex = firstIndex + rowPerPage;
 

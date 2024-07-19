@@ -7,11 +7,13 @@ const TableBody = ({ items }) => {
             return (
                 <tr
                     style={{ height: "80px", fontSize: "0.9rem" }}
-                    key={item.id}
+                    key={item.title}
                     scope="col "
                 >
                     <td className=" rounded">
-                        {item.images && renderImage(item.images)}{" "}
+                        {item.images
+                            ? renderImage(item.images)
+                            : renderImage("img.png")}{" "}
                     </td>
                     <td>{item.title}</td>
                     <td>{item.category}</td>
@@ -28,15 +30,32 @@ const TableBody = ({ items }) => {
     };
 
     const renderImage = (path) => {
-        return (
-            <>
-                <img
-                    style={{ maxHeight: "60px", maxWidth: "60px" }}
-                    src={`/image/${path}`}
-                    alt=""
-                />
-            </>
-        );
+        if (!Array.isArray(path))
+            return (
+                <>
+                    <img
+                        style={{
+                            maxHeight: "60px",
+                            maxWidth: "60px",
+                        }}
+                        src={`/image/${path}`}
+                        alt=""
+                    />
+                </>
+            );
+        else
+            return (
+                <>
+                    <img
+                        style={{
+                            maxHeight: "60px",
+                            maxWidth: "60px",
+                        }}
+                        src={`/image/img.png`}
+                        alt=""
+                    />
+                </>
+            );
     };
 
     return (

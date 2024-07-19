@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NewProduct from "./new-product";
 import Products from "./products";
-import http from "../services/http-service";
+import http from "../utils/http-service";
 import Navbar from "./navbar";
 
 class Home extends Component {
@@ -39,7 +39,6 @@ class Home extends Component {
     }
 
     handleNewProduct = (newProduct) => {
-        console.log(newProduct);
         const products = [newProduct, ...this.state.products];
 
         this.setState({
@@ -77,9 +76,11 @@ class Home extends Component {
     };
 
     handleSearch = ({ currentTarget: input }) => {
-        const searched = this.state.products.filter((item) =>
-            item.title.includes(input.value)
-        );
+        const searched = this.state.products.filter((item) => {
+            const searchPhrase = input.value.toLowerCase();
+            const title = item.title.toLowerCase();
+            return title.includes(searchPhrase);
+        });
 
         this.setState({
             searchPhrase: input.value,
@@ -99,12 +100,12 @@ class Home extends Component {
         } = this.state;
         return (
             <React.Fragment>
-                <div style={{ position: "relative" }} className="row">
+                <div style={{ position: "relative" }} className="row ">
                     <div style={{ width: "5%" }} className="col-1">
                         <Navbar />
                     </div>
 
-                    <div className="row col-11 responsive">
+                    <div className="row col responsive">
                         <div className="col-6 responsive">
                             <NewProduct
                                 categories={categories}

@@ -18,7 +18,7 @@ class Products extends Component {
 
         if (searchPhrase !== "")
             searched = searched.filter((item) =>
-                item.title.includes(searchPhrase)
+                item.title.toLowerCase().includes(searchPhrase.toLowerCase())
             );
 
         return pagination(searched, currentPage, rowPerPage);

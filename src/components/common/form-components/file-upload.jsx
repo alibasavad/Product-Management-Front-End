@@ -85,7 +85,10 @@ class FileUpload extends Component {
                         />
                     </div>
                     {error && (
-                        <div className="alert alert-danger  ">{error}</div>
+                        <small className="font-size-small font-weight-light text-danger">
+                            {"- "}
+                            {error}
+                        </small>
                     )}
                     <p style={{ fontSize: "0.8rem", margin: "0" }}>
                         File types :

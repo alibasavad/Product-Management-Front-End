@@ -1,7 +1,8 @@
 import React from "react";
 import Form from "./common/form";
 import Joi from "joi-browser";
-import http from "../services/http-service";
+import http from "../utils/http-service";
+import Loading from "./common/loading";
 
 class NewProduct extends Form {
     state = {
@@ -17,6 +18,7 @@ class NewProduct extends Form {
         errors: {},
         submitted: false,
         textAreas: ["description"],
+        loading: "none",
     };
 
     schema = {
@@ -35,11 +37,6 @@ class NewProduct extends Form {
         postDate.discountPercentage = postDate.discount;
         postDate.images = postDate.image;
 
-        const { data } = await http.post(
-            "https://dummyjson.com/products/add",
-            postDate
-        );
-
         for (let textArea of this.state.textAreas) {
             document.getElementById(textArea).innerHTML = "";
         }
@@ -55,14 +52,33 @@ class NewProduct extends Form {
             },
             errors: {},
             submitted: false,
+            loading: "block",
         });
 
-        this.props.onNewProduct(data);
+        try {
+            const { data } = await http.post(
+                "https://dummyjson.com/products/add",
+                postDate
+            );
+
+            this.setState({
+                loading: "none",
+            });
+
+            this.props.onNewProduct(data);
+        } catch (error) {
+            this.setState({
+                loading: "none",
+            });
+        }
     };
 
     render() {
         return (
             <React.Fragment>
+                <div style={{ display: this.state.loading }}>
+                    <Loading />
+                </div>
                 <form
                     className=" bg-white p-3 m-2   rounded row"
                     onSubmit={this.handleSubmit}
@@ -71,11 +87,14 @@ class NewProduct extends Form {
 
                     <div className="col-8">
                         {this.renderInput("Product Name", "title")}
-                        <div className="row">
-                            <span className="col-8">
+                        <div className="row ">
+                            <span className="col-8 p-0">
                                 {this.renderInput("Price ($)", "price")}
                             </span>
-                            <span className="col-4">
+                            <span
+                                style={{ paddingRight: "0" }}
+                                className="col-4 "
+                            >
                                 {this.renderInput("Discount (%)", "discount")}
                             </span>
                         </div>
@@ -101,7 +120,7 @@ class NewProduct extends Form {
                             Do not exeed 100 characters
                         </p>
                     </div>
-                    <div className="col-4 ">
+                    <div style={{ margin: "2.2rem 0 0 " }} className="col-4  ">
                         <div className="h-75 d-block">
                             {this.renderFileUpload("image")}
                         </div>

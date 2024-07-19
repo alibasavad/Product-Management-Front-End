@@ -14,7 +14,12 @@ const Select = ({ name, label, error, options, ...rest }) => {
                         <option key={option}>{option}</option>
                     ))}
                 </select>
-                {error && <div className="alert alert-danger  ">{error}</div>}
+                {error && (
+                    <small className="font-size-small font-weight-light text-danger">
+                        {"- "}
+                        {error}
+                    </small>
+                )}
             </div>
         </React.Fragment>
     );

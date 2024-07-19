@@ -8,6 +8,12 @@ class Pagination extends Component {
             borderRadius: "25px",
             alignSelf: "center",
         },
+        select: {
+            border: "none",
+            backgroundColor: "inherit",
+            fontSize: "0.8rem",
+            alignSelf: "start",
+        },
     };
 
     render() {
@@ -41,11 +47,7 @@ class Pagination extends Component {
                             onChange={(e) => {
                                 onPagination.handleRowPerPage(e);
                             }}
-                            style={{
-                                border: "none",
-                                backgroundColor: "inherit",
-                                fontSize: "0.8rem",
-                            }}
+                            style={this.style.select}
                             name="rows"
                             id="rows"
                         >
