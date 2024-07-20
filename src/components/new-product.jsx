@@ -80,20 +80,20 @@ class NewProduct extends Form {
                     <Loading />
                 </div>
                 <form
-                    className=" bg-white p-3 m-2   rounded row"
+                    className=" bg-white p-3 m-2 column-550 rounded row"
                     onSubmit={this.handleSubmit}
                 >
                     <h2 className="text-primary">Creat A New Product</h2>
 
-                    <div className="col-8">
+                    <div className="col-8 w-100-550">
                         {this.renderInput("Product Name", "title")}
                         <div className="row ">
-                            <span className="col-8 p-0">
+                            <span className="col-8 p-0 w-100-550">
                                 {this.renderInput("Price ($)", "price")}
                             </span>
                             <span
                                 style={{ paddingRight: "0" }}
-                                className="col-4 "
+                                className="col-4 w-100-550 "
                             >
                                 {this.renderInput("Discount (%)", "discount")}
                             </span>
@@ -120,7 +120,10 @@ class NewProduct extends Form {
                             Do not exeed 100 characters
                         </p>
                     </div>
-                    <div style={{ margin: "2.2rem 0 0 " }} className="col-4  ">
+                    <div
+                        style={{ margin: "2.2rem 0 0 " }}
+                        className="col-4 w-100-550 "
+                    >
                         <div className="h-75 d-block">
                             {this.renderFileUpload("image")}
                         </div>

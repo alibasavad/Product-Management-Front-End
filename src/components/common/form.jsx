@@ -114,7 +114,10 @@ class Form extends Component {
     renderButton = (label) => {
         return (
             <>
-                <button disabled={this.validate()} className="btn btn-primary">
+                <button
+                    disabled={this.validate()}
+                    className="btn btn-primary m-2"
+                >
                     {label}
                 </button>
             </>
@@ -124,7 +127,7 @@ class Form extends Component {
     renderClearButton = (label) => {
         return (
             <input
-                className="btn mx-1"
+                className="btn m-2"
                 onClick={this.handleClear}
                 type="reset"
                 value={label}

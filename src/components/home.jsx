@@ -101,7 +101,7 @@ class Home extends Component {
         return (
             <React.Fragment>
                 <div style={{ position: "relative" }} className="row ">
-                    <div style={{ width: "5%" }} className="col-1">
+                    <div id="navbar" className="col-1 navbar-div">
                         <Navbar />
                     </div>
 

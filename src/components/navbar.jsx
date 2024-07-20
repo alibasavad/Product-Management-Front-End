@@ -6,7 +6,7 @@ class Navbar extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="  navbar-project img-hover  ">
+                <div className="  navbar-project img-hover   ">
                     <ul className="navbar-nav my-4   ">
                         <li className="nav-item  ">
                             <NavLink className="nav-item nav-link " to="#">

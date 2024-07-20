@@ -40,10 +40,11 @@ class Pagination extends Component {
                         >
                             {"<"}
                         </a>
-                        <p className="mx-4">
+                        <p className="mx-4 ho-550">
                             {currentPage} - {totalPage}
                         </p>
                         <select
+                            className="ho-550"
                             onChange={(e) => {
                                 onPagination.handleRowPerPage(e);
                             }}
@@ -56,7 +57,11 @@ class Pagination extends Component {
                             <option value="15"> 15</option>
                             <option value="20"> 20</option>
                         </select>
-                        <label style={{ fontSize: "0.8rem" }} htmlFor="rows">
+                        <label
+                            className="ho-550"
+                            style={{ fontSize: "0.8rem" }}
+                            htmlFor="rows"
+                        >
                             Rows per page :
                         </label>
                     </div>

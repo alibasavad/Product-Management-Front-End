@@ -6,20 +6,16 @@ const TableBody = ({ items }) => {
         return items.map((item) => {
             return (
                 <tr
-                    style={{ height: "80px", fontSize: "0.9rem" }}
+                    style={{ height: "80px", fontSize: "90%" }}
                     key={item.title}
                     scope="col "
                 >
-                    <td className=" rounded">
-                        {item.images
-                            ? renderImage(item.images)
-                            : renderImage("img.png")}{" "}
-                    </td>
+                    <td className=" rounded">{renderImage(item.images)} </td>
                     <td>{item.title}</td>
-                    <td>{item.category}</td>
-                    <td>{item.brand}</td>
-                    <td>{item.price + " $"}</td>
-                    <td className=" rounded">
+                    <td className="ho-550 ">{item.category}</td>
+                    <td className="ho-550">{item.brand}</td>
+                    <td className="ho-550">{item.price + " $"}</td>
+                    <td className=" rounded ho-550">
                         {item.discountPercentage
                             ? item.discountPercentage + " %"
                             : "0"}

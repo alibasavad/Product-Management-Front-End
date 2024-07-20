@@ -11,6 +11,15 @@ class Products extends Component {
         headers: ["", "Name", "Category", "Brand", "Price", "Discount(%)"],
     };
 
+    style = {
+        table: {
+            borderCollapse: "separate",
+            borderSpacing: "0 12px",
+
+            verticalAlign: "middle",
+        },
+    };
+
     handleProducts = () => {
         const { currentPage, rowPerPage, searchPhrase } = this.props;
 
@@ -32,9 +41,9 @@ class Products extends Component {
         return (
             <React.Fragment>
                 <div className=" ">
-                    <div className=" p-3 row">
+                    <div className=" column-550 p-3 row ">
                         <h4 className="text-secondary col-6">Products</h4>
-                        <div className="col-6">
+                        <div className="col-6 w-100-550">
                             <Searchbar
                                 value={searchPhrase}
                                 onChange={this.props.onSearch}
@@ -42,12 +51,7 @@ class Products extends Component {
                         </div>
                     </div>
                     <table
-                        style={{
-                            borderCollapse: "separate",
-                            borderSpacing: "0 12px",
-
-                            verticalAlign: "middle",
-                        }}
+                        style={this.style.table}
                         className="table table-hover table-borderless "
                     >
                         <TableHead headers={headers} />

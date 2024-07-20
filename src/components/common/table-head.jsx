@@ -20,7 +20,7 @@ const TableHead = ({ headers }) => {
     return (
         <React.Fragment>
             <thead>
-                <tr>{renderHeader()}</tr>
+                <tr className="ho-550 ">{renderHeader()}</tr>
             </thead>
         </React.Fragment>
     );
